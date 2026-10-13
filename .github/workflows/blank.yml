@@ -1,0 +1,19 @@
+name: Windows Virtual Environment
+
+on:
+workflow_dispatch:
+
+jobs:
+build:
+runs-on: windows-latest
+
+steps:
+  - name: Baixar arquivos do projeto
+    uses: actions/checkout@v4
+
+  - name: Verificar o Windows
+    shell: pwsh
+    run: |
+      Write-Host "Ambiente Windows iniciado!"
+      Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion
+      Write-Host "Verificação concluída."
